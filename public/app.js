@@ -1,11 +1,4 @@
-window.onload = function(){
-  // var tagline = document.getElementById("tagline");
-  // tagline.innerText = "New Tagline";
-
-  // var articles = document.querySelectorAll("article");
-  // for (var i = 0; i < articles.length; i++) {
-  //   articles[i].style.backgroundColor = "tomato";
-  // };
+var init = function(){
 
   var quoteArticle = document.createElement("article");
   quoteArticle.classList.add("quote");
@@ -21,15 +14,6 @@ window.onload = function(){
 
   var quotes = document.querySelector("div");
   quotes.insertBefore(quoteArticle, quotes.firstChild);
-  // quotes.appendChild(quoteArticle);
-
-  // var blockQuote = document.querySelectorAll("blockquote");
-  // var cite = document.querySelectorAll("cite");
-  // var quotesArray = [];
-  // for (var i = 0; i < blockQuote.length; i++) {
-  //   var quotesArray.push({text: blockquoteQuotes[i]});
-  // };
-  // document.querySelectorAll("article").
 
   var QotdRename = document.querySelector("h2");
   QotdRename.innerText = "Featured Quotes";
@@ -57,36 +41,36 @@ window.onload = function(){
   var quotesArray = [quote1, quote2, quote3, quote4];
 
   for (var i = 0; i < quotesArray.length; i++) {
-  var text = document.createElement("blockquote");
-  var cite = document.createElement("cite");
-  var article = document.createElement("article");
+    var text = document.createElement("blockquote");
+    var cite = document.createElement("cite");
+    var article = document.createElement("article");
 
-  text.innerText = (quotesArray[i].text);
-  cite.innerText = (quotesArray[i].author);
+    text.innerText = (quotesArray[i].text);
+    cite.innerText = (quotesArray[i].author);
 
-  text.appendChild(cite);
-  article.appendChild(text);
+    text.appendChild(cite);
+    article.appendChild(text);
 
-  var container = document.querySelector("#container");
-  container.appendChild(article);
-}
+    var container = document.querySelector("#container");
+    container.appendChild(article);
+  }
 
- var inputText = document.createElement("input");
- inputText.type = "text";
- inputText.placeholder = "Enter a quote";
- inputText.className = "new-quote"
- container.appendChild(inputText);
+  var inputText = document.createElement("input");
+  inputText.type = "text";
+  inputText.placeholder = "Enter a quote";
+  inputText.className = "new-quote"
+  container.appendChild(inputText);
 
- var inputAuthor = document.createElement("input");
- inputAuthor.type = "text";
- inputAuthor.placeholder = "Enter the author";
- container.appendChild(inputAuthor);
+  var inputAuthor = document.createElement("input");
+  inputAuthor.type = "text";
+  inputAuthor.placeholder = "Enter the author";
+  container.appendChild(inputAuthor);
 
- var inputButton = document.createElement("button");
- inputButton.innerText = "Submit";
- container.appendChild(inputButton);
+  var inputButton = document.createElement("button");
+  inputButton.innerText = "Submit";
+  container.appendChild(inputButton);
 
- var handleClick = function(){
+  var handleClick = function(){
    console.log('Whoah I got clicked');
    var quote = inputText.value;
    var author = inputAuthor.value;
@@ -94,52 +78,21 @@ window.onload = function(){
    var newQuote = new Quote(quote, author);
    quotesArray.push(newQuote);
    console.log(newQuote);
+   console.log(quotesArray);
  }
 
  inputButton.onclick = handleClick;
-  
-  var allQuotes = document.querySelectorAll("article");
-  for(var i = 0; i < allQuotes.length; i++) {
-    if((i+1) % 2 === 0){
-      allQuotes[i].style.backgroundColor = "wheat";
-      allQuotes[i].style.color = "tomato";
-    }else{
-      allQuotes[i].style.backgroundColor = "tomato";
-      allQuotes[i].style.color = "wheat";
-    }
-  };
-
-  // var inputText = document.createElement("input");
-  // inputText.type = "text";
-  // inputText.placeholder = "Enter a quote";
-  // inputText.className = "new-quote"
-  // container.appendChild(inputText);
-
-  // var inputAuthor = document.createElement("input");
-  // inputAuthor.type = "text";
-  // inputAuthor.placeholder = "Enter the author";
-  // container.appendChild(inputAuthor);
-
-  // var inputButton = document.createElement("button");
-  // inputButton.innerText = "Submit";
-  // container.appendChild(inputButton);
-
-  // var handleClick = function(){
-  //   console.log('Whoah I got clicked');
-  //   // var boxInput = document.getElementById("film-text-input").value;
-  //   var textInput = inputText.value;
-  //   var authorInput = inputAuthor.value;
-  //   console.log('text input', textInput, 'author input', authorInput);
-  //   var newQuote = (textInput, authorInput);
-  //   quotesArray.push(newQuote);
-  // }
-
-  // inputButton.onclick = handleClick;
-
-  // Check film example
-  // Add boxInput as before
-  // Add items to array as an object (check upper unused code) - set each part to a separate var, then push to quotesArray(?) as a key value pair
-  // Add them as a new blockquote item, or let the existing JS take care of it? Check order.
-
-
+ 
+ var allQuotes = document.querySelectorAll("article");
+ for(var i = 0; i < allQuotes.length; i++) {
+  if((i+1) % 2 === 0){
+    allQuotes[i].style.backgroundColor = "wheat";
+    allQuotes[i].style.color = "tomato";
+  }else{
+    allQuotes[i].style.backgroundColor = "tomato";
+    allQuotes[i].style.color = "wheat";
+  }
 };
+};
+
+window.onload = init;
